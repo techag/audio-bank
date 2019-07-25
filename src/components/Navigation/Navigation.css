@@ -1,0 +1,177 @@
+
+/* header */
+
+.Navigation {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(70,225,159,1) 35%, rgba(0,212,255,1) 100%);
+    width: 100%;
+    z-index: 3;
+    font-size:2rem;
+    height:5.5rem;
+}
+
+.Navigation ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.Navigation li a {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.Navigation li a:hover,
+.Navigation .NavigationBtn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* menu */
+
+.Navigation .Menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+.Menu li {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, #ff6222 0%, rgba(255,164,0,1) 100%);
+    margin-top: 3px;
+}
+
+/* menu icon */
+
+.Navigation .NavigationIcon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+    z-index: 999;
+}
+
+.Navigation .NavigationIcon .Navicon {
+    background: #fff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+}
+
+.Navigation .NavigationIcon .Navicon:before,
+.Navigation .NavigationIcon .Navicon:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.Navigation .NavigationIcon .Navicon:before {
+    top: 5px;
+}
+
+.Navigation .NavigationIcon .Navicon:after {
+    top: -5px;
+}
+
+/* menu btn */
+
+.Navigation .NavigationBtn {
+    display: none;
+}
+
+.Navigation .NavigationBtn:checked ~ .Menu {
+    max-height: 240px;
+    position: relative;
+    z-index: 9;
+}
+
+.Navigation .NavigationBtn:checked ~ .NavigationIcon .Navicon {
+    background: transparent;
+}
+
+.Navigation .NavigationBtn:checked ~ .NavigationIcon .Navicon:before {
+    transform: rotate(-45deg);
+}
+
+.Navigation .NavigationBtn:checked ~ .NavigationIcon .Navicon:after {
+    transform: rotate(45deg);
+}
+
+.Navigation .NavigationBtn:checked ~ .NavigationIcon:not(.steps) .Navicon:before,
+.Navigation .NavigationBtn:checked ~ .NavigationIcon:not(.steps) .Navicon:after {
+    top: 0;
+}
+
+
+/* Search Bar*/
+
+.SearchBar {
+    margin-left: 7rem;
+    position: relative;
+    right: 4.5rem;
+    top: -5.8rem;
+    display: flex;
+    flex-direction: row;
+    float: right;
+}
+
+.SearchInput {
+    height: 4.5rem;
+    margin-top: 5px;
+    width: 25rem;
+    border-radius: 25px;
+    border-color: #fff;
+    box-shadow: none;
+    border: none;
+    font-size: 2rem;
+    padding-left: 20px;
+}
+
+.fa-search:before {
+    content: "\f002";
+    position: relative;
+    right: 4rem;
+    font-size: 2.4rem;
+    color: #ff6222;
+    top: 1.5rem;
+}
+
+@media screen  and (min-width: 700px) {
+    .Navigation li {
+        float: left;
+    }
+    .Navigation li a {
+        padding: 13px 30px;
+    }
+    .Navigation .Menu {
+        clear: none;
+        float: left;
+        max-height: none;
+        margin-left: 7rem;
+    }
+    .Navigation .NavigationIcon {
+        display: none;
+    }
+    .SearchBar {
+        top: 0;
+        margin-left: 0;
+        width: 25%;
+    }
+    .SearchInput {
+        width: 100%;
+    }
+
+    .Menu li {
+        background: none;
+    }
+}
